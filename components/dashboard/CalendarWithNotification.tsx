@@ -1,9 +1,7 @@
 "use client"
-
 import React, { useState } from "react"
 import { addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, format, isSameDay, isSameMonth, isToday } from "date-fns"
 import { ChevronLeft, ChevronRight, Play } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 
 const weekdayLabels = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"]
@@ -13,7 +11,6 @@ function generateCalendarDays(currentMonth: Date) {
   const endMonth = endOfMonth(currentMonth)
   const startDate = startOfWeek(startMonth, { weekStartsOn: 1 }) // Monday start
   const endDate = endOfWeek(endMonth, { weekStartsOn: 1 })
-
   const days = []
   let day = startDate
   while (day <= endDate) {
@@ -36,45 +33,37 @@ interface CalendarProps {
 
 export function Calendar({ selectedDate, onDateChange }: CalendarProps) {
   const [currentMonth, setCurrentMonth] = React.useState(new Date())
-
   const days = generateCalendarDays(currentMonth)
-
   function nextMonth() {
     setCurrentMonth(addMonths(currentMonth, 1))
   }
   function prevMonth() {
     setCurrentMonth(subMonths(currentMonth, 1))
   }
-
   return (
-    <div className="w-full max-w-sm mx-auto p-4 bg-white rounded-2xl shadow-lg">
+    <div className="flex flex-col w-full max-w-sm p-4 bg-white rounded-2xl shadow-lg">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 px-2">
+      <div className="flex items-center justify-between mb-4 px-2 flex-shrink-0">
         <Button variant="ghost" size="icon" onClick={prevMonth} aria-label="Previous Month">
           <ChevronLeft className="w-5 h-5 text-gray-500" />
         </Button>
-
         <h2 className="font-medium text-[#8A8A8F]">{format(currentMonth, "LLLL, yyyy")}</h2>
-
         <Button variant="ghost" size="icon" onClick={nextMonth} aria-label="Next Month">
           <ChevronRight className="w-5 h-5 text-gray-500" />
         </Button>
       </div>
-
       {/* Weekday Labels */}
-      <div className="grid grid-cols-7 text-xs font-medium text-[#8A8A8F] mb-2 select-none">
+      <div className="grid grid-cols-7 text-xs font-medium text-[#8A8A8F] mb-2 select-none flex-shrink-0">
         {weekdayLabels.map((wd) => (
           <div key={wd} className="text-center py-1">{wd}</div>
         ))}
       </div>
-
       {/* Days grid */}
-      <div className="grid grid-cols-7 gap-1 text-sm">
+      <div className="grid grid-cols-7 gap-1 text-sm flex-grow">
         {days.map((day, idx) => {
           const isCurrentMonth = isSameMonth(day, currentMonth)
           const isSelected = selectedDate ? isSameDay(day, selectedDate) : false
           const isTodayDate = isToday(day)
-
           return (
             <button
               key={idx}
@@ -114,7 +103,6 @@ interface NotificationBannerProps {
 
 export function NotificationBanner({ selectedDate }: NotificationBannerProps) {
   if (!selectedDate) return null
-
   return (
     <div
       className="max-w-sm mx-auto mt-6 text-white p-4 rounded-lg flex items-center gap-3"
@@ -135,9 +123,8 @@ export function NotificationBanner({ selectedDate }: NotificationBannerProps) {
 
 export default function CalendarWithNotification() {
   const [selectedDate, setSelectedDate] = useState<Date>(() => new Date())
-
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center h-full max-h-full overflow-hidden">
       <Calendar selectedDate={selectedDate} onDateChange={setSelectedDate} />
       <NotificationBanner selectedDate={selectedDate} />
     </div>

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 export function PortfolioWidget() {
   return (
-    <Card className="relative w-full max-w-md rounded-2xl overflow-hidden bg-white bg-opacity-80 shadow-lg">
+    <Card className="relative w-full rounded-[2rem] overflow-hidden bg-white bg-opacity-80 shadow-lg min-h-[140px] max-h-[150px] flex flex-col justify-center">
       {/* Background graph (absolute positioning behind content) */}
       <svg
         className="absolute top-4 left-4 right-4 bottom-4 pointer-events-none opacity-20"
@@ -23,7 +23,6 @@ export function PortfolioWidget() {
           strokeLinejoin="round"
         />
       </svg>
-
       <CardContent className="relative z-10 p-6">
         <CardHeader className="p-0 mb-2">
           <h3 className="text-black text-sm font-medium">Assets</h3>

@@ -14,10 +14,20 @@ export default function DashboardPage() {
       <main className="flex-1 p-4 sm:p-6 lg:p-8 lg:ml-8 overflow-x-hidden">
         {/* Top header */}
         <section className="max-w-3xl mb-8">
-          <h1 className="text-lg sm:text-xl font-semibold" style={{ color: "#00111B" }}>
+          <h1
+            className="font-normal"
+            style={{
+              fontFamily: 'Open Sans Hebrew, sans-serif',
+              fontWeight: 400,
+              fontSize: '48px',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              color: '#00111B',
+            }}
+          >
             Welcome to your modern wealth platform, Priyesh!
           </h1>
-          <p className="mt-1 text-sm text-gray-600 max-w-md">
+          <p className="mt-1 text-sm text-gray-600 whitespace-nowrap overflow-hidden text-ellipsis">
             Explore all that Arta has to offer, and start building your digital family office.
           </p>
           <Button
@@ -30,23 +40,28 @@ export default function DashboardPage() {
         </section>
 
         {/* Main content area */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Left: Calendar */}
-          <div className="lg:col-span-3">
-            <CalendarWithNotification />
+          <div className="lg:col-span-3 flex flex-col h-full">
+            <div className="flex-1 flex flex-col justify-stretch">
+              <CalendarWithNotification />
+            </div>
           </div>
 
           {/* Center + Right: Portfolio, Watchlist and News */}
           <div className="lg:col-span-9">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
               {/* Portfolio and Watchlist stacked vertically */}
-              <div className="flex flex-col gap-4 sm:gap-6">
-                <PortfolioWidget />
-                <Watchlist />
+              <div className="flex flex-col gap-6 h-full justify-between">
+                <div className="flex-1 flex flex-col justify-stretch">
+                  <PortfolioWidget />
+                </div>
+                <div className="flex-1 flex flex-col justify-stretch">
+                  <Watchlist />
+                </div>
               </div>
-              
               {/* News Widget */}
-              <div className="h-full">
+              <div className="flex flex-col h-full justify-stretch">
                 <NewsWidget />
               </div>
             </div>

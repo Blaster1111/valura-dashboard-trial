@@ -6,36 +6,37 @@ import { Badge } from "@/components/ui/badge"
 
 export function NewsWidget() {
   return (
-    <Card className="w-full h-fit rounded-2xl shadow-lg overflow-hidden p-0 bg-white">
-      <div className="flex flex-col">
+    <Card className="w-full rounded-[2rem] shadow-md overflow-hidden p-0 bg-white border border-gray-200 min-h-[420px] max-h-[480px] flex flex-col justify-between">
+      {/* News Section */}
+      <div className="flex flex-col flex-1">
         <img
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wbaB77xMXV7KZYBMGnfL4l3Z153Hoi.png"
           alt="News"
-          className="w-full object-cover aspect-video"
+          className="w-full object-cover aspect-[3/1] bg-gray-100 max-h-32"
           onError={(e) => {
-            e.currentTarget.src = "/placeholder.svg?height=200&width=400";
+            e.currentTarget.src = '/placeholder.svg?height=100&width=300';
           }}
         />
-        <div className="px-4 py-3 space-y-3">
-          <div className="flex items-center gap-2">
-            <Badge className="bg-red-600 hover:bg-red-700 text-white text-xs px-2 py-1 rounded-sm font-medium">
+        <div className="px-4 py-3 space-y-2 flex-1 flex flex-col">
+          <div className="flex items-center gap-2 mb-1">
+            <Badge className="bg-[#E63946] hover:bg-[#D62839] text-white text-[11px] px-2 py-0.5 rounded font-semibold shadow-none tracking-wide">
               CNN News
             </Badge>
-            <span className="text-xs text-gray-500 font-medium">25 min ago</span>
+            <span className="text-[11px] text-gray-400 font-medium">25 min ago</span>
           </div>
-          <h3 className="font-semibold text-lg leading-tight text-gray-900">
+          <h3 className="font-semibold text-base leading-tight text-gray-900 mb-1">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer
           </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-xs text-gray-600 leading-snug flex-1">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...
           </p>
-          <div className="flex items-center justify-end pt-2">
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full hover:bg-gray-100">
-                <ChevronLeft className="w-4 h-4 text-gray-600" />
+          <div className="flex items-center justify-end pt-1">
+            <div className="flex items-center gap-1">
+              <Button variant="ghost" size="icon" className="w-7 h-7 rounded-full hover:bg-gray-100 border border-gray-200 p-0">
+                <ChevronLeft className="w-4 h-4 text-gray-500" />
               </Button>
-              <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full hover:bg-gray-100">
-                <ChevronRight className="w-4 h-4 text-gray-600" />
+              <Button variant="ghost" size="icon" className="w-7 h-7 rounded-full hover:bg-gray-100 border border-gray-200 p-0">
+                <ChevronRight className="w-4 h-4 text-gray-500" />
               </Button>
             </div>
           </div>
