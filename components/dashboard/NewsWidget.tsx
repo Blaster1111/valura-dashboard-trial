@@ -23,12 +23,13 @@ export function NewsWidget() {
             </Badge>
             <span className="text-xs text-gray-500 font-medium">25 min ago</span>
           </div>
-          <h3 className="font-semibold text-lg leading-tight text-gray-900">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer
-          </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...
-          </p>
+          <h3 className="font-medium text-lg leading-tight text-gray-800">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer
+</h3>
+<p className="text-sm text-gray-500 opacity-70 leading-relaxed">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...
+</p>
+
           <div className="flex items-center justify-end pt-2">
             <div className="flex items-center gap-2">
               <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full hover:bg-gray-100">
