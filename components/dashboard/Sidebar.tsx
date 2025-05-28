@@ -184,22 +184,15 @@ ine focus:outline-none focus:ring-0"
               </div>
             </>
           ) : (
-            <div className="flex flex-col items-center space-y-1">
+            <div className="flex justify-center items-center">
               <Image
                 src="/valura-logo.png"
                 alt="Valura Logo"
-                width={36} // Increased from 28
-                height={36} // Increased from 28
+                width={36}
+                height={36}
                 priority
                 draggable={false}
               />
-              <button
-                className="focus-visible:outline-none text-[9px] text-gray-500"
-                type="button"
-                style={{ fontSize: 'clamp(0.45rem, 0.6vw, 0.55rem)' }}
-              >
-                Legal & Privacy
-              </button>
             </div>
           )}
         </div>
