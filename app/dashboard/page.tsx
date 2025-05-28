@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Sidebar from '../../components/dashboard/Sidebar'
 import CalendarWithNotification from '../../components/dashboard/CalendarWithNotification'
 import { PortfolioWidget } from '../../components/dashboard/PortfolioWidget'
@@ -9,11 +9,13 @@ import { ArrowRight } from "lucide-react"
 
 export default function DashboardPage() {
   return (
-<div className="flex flex-col lg:flex-row min-h-screen bg-[url('/dashboard-bg.png')] bg-cover bg-no-repeat bg-center">
-      <Sidebar />
-      <main className="flex-1 p-4 sm:p-6 lg:p-8 lg:ml-8 overflow-x-hidden">
+    <div className="flex flex-col lg:flex-row h-screen bg-[url('/dashboard-bg.png')] bg-cover bg-no-repeat bg-center overflow-hidden">
+      <div className="lg:ml-4">
+        <Sidebar />
+      </div>
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 flex flex-col overflow-hidden">
         {/* Top header */}
-        <section className="max-w-3xl mb-8">
+        <section className="max-w-3xl mb-6 flex-shrink-0">
           <h1 className="text-lg sm:text-xl font-semibold" style={{ color: "#00111B" }}>
             Welcome to your modern wealth platform, Priyesh!
           </h1>
@@ -28,25 +30,22 @@ export default function DashboardPage() {
             Explore <ArrowRight className="w-4 h-4" />
           </Button>
         </section>
-
         {/* Main content area */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 flex-grow overflow-hidden">
           {/* Left: Calendar */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 h-full flex flex-col overflow-hidden">
             <CalendarWithNotification />
           </div>
-
           {/* Center + Right: Portfolio, Watchlist and News */}
-          <div className="lg:col-span-9">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="lg:col-span-9 flex flex-col overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 flex-grow overflow-hidden">
               {/* Portfolio and Watchlist stacked vertically */}
-              <div className="flex flex-col gap-4 sm:gap-6">
+              <div className="flex flex-col gap-4 sm:gap-6 overflow-hidden">
                 <PortfolioWidget />
                 <Watchlist />
               </div>
-              
               {/* News Widget */}
-              <div className="h-full">
+              <div className="h-full overflow-hidden flex flex-col">
                 <NewsWidget />
               </div>
             </div>

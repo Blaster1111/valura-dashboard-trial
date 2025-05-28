@@ -1,8 +1,7 @@
 "use client"
-
+import { ArrowDown, ArrowUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { ArrowUp, ArrowDown } from "lucide-react"
 
 const watchlistData = [
   {
@@ -12,7 +11,6 @@ const watchlistData = [
     changePercent: "3.4%",
     positive: true,
     color: "bg-black",
-    icon: "NIKE", // You can use your icon/SVG here or initials
   },
   {
     symbol: "SPOT",
@@ -20,7 +18,7 @@ const watchlistData = [
     price: "$2342.89",
     changePercent: "3.4%",
     positive: true,
-    color: "bg-[#1DB954]", // Spotify Green
+    color: "bg-[#1DB954]",
   },
   {
     symbol: "AMZN",
@@ -28,7 +26,7 @@ const watchlistData = [
     price: "$340.23",
     changePercent: "3.4%",
     positive: false,
-    color: "bg-[#FF9900]", // Amazon Orange
+    color: "bg-[#FF9900]",
   },
   {
     symbol: "SNAP",
@@ -36,7 +34,7 @@ const watchlistData = [
     price: "$340.23",
     changePercent: "3.4%",
     positive: false,
-    color: "bg-[#FFFC00]", // Snap Yellow
+    color: "bg-[#FFFC00]",
   },
 ]
 
@@ -55,8 +53,8 @@ function MiniChart({ positive }: { positive: boolean }) {
 
 export function Watchlist() {
   return (
-    <Card className="max-w-sm rounded-2xl shadow-lg">
-      <CardHeader className="pb-2 flex items-center justify-between">
+    <Card className="w-full rounded-2xl shadow-lg flex flex-col min-h-0 max-h-[360px]">
+      <CardHeader className="pb-2 flex items-center justify-between flex-shrink-0">
         <div>
           <h3 className="text-black font-semibold text-base">Watchlists</h3>
           <p className="text-black text-xs opacity-40">You have 4 Stocks</p>
@@ -68,8 +66,7 @@ export function Watchlist() {
           Add Stock
         </Button>
       </CardHeader>
-
-      <CardContent className="p-0">
+      <CardContent className="p-0 overflow-auto flex-grow min-h-0">
         <div className="divide-y divide-gray-200/40">
           {watchlistData.map((stock, i) => (
             <div key={i} className="flex items-center justify-between px-4 py-3">
@@ -77,8 +74,7 @@ export function Watchlist() {
                 <div
                   className={`${stock.color} w-10 h-10 rounded-full flex items-center justify-center`}
                 >
-                  {/* Using first letter as placeholder, replace with icons as needed */}
-                  <span className={`text-white font-bold text-lg`}>
+                  <span className="text-white font-bold text-lg">
                     {stock.symbol === "GOOG" ? "N" : stock.symbol.charAt(0)}
                   </span>
                 </div>
@@ -87,7 +83,6 @@ export function Watchlist() {
                   <div className="text-black text-xs opacity-40">{stock.name}</div>
                 </div>
               </div>
-
               <div className="flex items-center gap-4">
                 <MiniChart positive={stock.positive} />
                 <div className="text-right min-w-[80px]">

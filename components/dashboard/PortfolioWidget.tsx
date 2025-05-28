@@ -1,12 +1,11 @@
 "use client"
-
 import { ArrowDown } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 export function PortfolioWidget() {
   return (
-    <Card className="relative w-full max-w-md rounded-2xl overflow-hidden bg-white bg-opacity-80 shadow-lg">
-      {/* Background graph (absolute positioning behind content) */}
+    <Card className="relative w-full rounded-2xl overflow-hidden bg-white bg shadow-lg flex flex-col h-[160px] sm:h-[180px]">
+      {/* Background graph */}
       <svg
         className="absolute top-4 left-4 right-4 bottom-4 pointer-events-none opacity-20"
         viewBox="0 0 408 152"
@@ -23,8 +22,7 @@ export function PortfolioWidget() {
           strokeLinejoin="round"
         />
       </svg>
-
-      <CardContent className="relative z-10 p-6">
+      <CardContent className="relative z-10 p-6 flex flex-col justify-center">
         <CardHeader className="p-0 mb-2">
           <h3 className="text-black text-sm font-medium">Assets</h3>
         </CardHeader>
